@@ -8,7 +8,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait de coco",
                 "quantité": 400,
-                "unité": "ml"
+                "unit": "ml"
             },
             {
                 "ingrédient": "Jus de citron",
@@ -17,7 +17,7 @@ export const recettes = [
             {
                 "ingrédient": "Crème de coco",
                 "quantité": 2,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             },
             {
                 "ingrédient": "Sucre",
@@ -60,9 +60,9 @@ export const recettes = [
                 "quantité": 5
             },
             {
-                "ingrédient": "Lait de Coco",
+                "ingrédient": "Lait de coco",
                 "quantité": 100,
-                "unité": "ml"
+                "unit": "ml"
             }
         ],
         "temps": 60,
@@ -81,12 +81,12 @@ export const recettes = [
             {
                 "ingrédient": "Lait de coco",
                 "quantité": 400,
-                "unité": "ml"
+                "unit": "ml"
             },
             {
                 "ingrédient": "Coulis de tomate",
                 "quantité": 25,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Oignon",
@@ -99,7 +99,7 @@ export const recettes = [
             {
                 "ingrédient": "Huile d'olive",
                 "quantité": 1,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             }
         ],
         "temps": 80,
@@ -136,12 +136,12 @@ export const recettes = [
             {
                 "ingrédient": "Vinaigrette",
                 "quantité": 5,
-                "unité": "cl"
+                "unit": "cl"
             }
         ],
         "temps": 50,
         "description": "Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les œufs dur en quarts ou en lamelle au choix, couper le tomates en dés, ajouter au riz les œufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au goût de chacun des corniches, olives etc..",
-        "appareil": "Cuiseur de riz",
+        "appareil": "Cuisseur de riz",
         "ustensiles": ["saladier", "passoire"]
     },
     {
@@ -165,7 +165,7 @@ export const recettes = [
             {
                 "ingrédient": "Crème fraîche",
                 "quantité": 2,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             },
             {
                 "ingrédient": "gruyère râpé",
@@ -175,7 +175,7 @@ export const recettes = [
             {
                 "ingrédient": "Moutarde de Dijon",
                 "quantité": 1,
-                "unite": "cuillères à soupe"
+                "unite": " cuillères à soupe"
             }
         ],
         "temps": 45,
@@ -203,7 +203,7 @@ export const recettes = [
             {
                 "ingrédient": "Crème fraîche",
                 "quantité": 25,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Sucre en Poudre",
@@ -213,7 +213,7 @@ export const recettes = [
             {
                 "ingrédient": "Sucre vanillé",
                 "quantité": 1,
-                "unité": "sachets"
+                "unit": "sachets"
 
             }
         ],
@@ -238,7 +238,7 @@ export const recettes = [
             {
                 "ingrédient": "Crème liquide",
                 "quantité": 80,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Beurre",
@@ -337,12 +337,12 @@ export const recettes = [
             {
                 "ingrédient": "Pommes de terre",
                 "quantité": 4.5,
-                "unité": "kg"
+                "unit": "kg"
             },
             {
                 "ingrédient": "Jambon fumé",
                 "quantité": 2,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Oignon",
@@ -352,7 +352,7 @@ export const recettes = [
             {
                 "ingrédient": "Vin blanc sec",
                 "quantité": 30,
-                "unité": "cl"
+                "unit": "cl"
             }
         ],
         "temps": 60,
@@ -377,7 +377,7 @@ export const recettes = [
             {
                 "ingrédient": "Jambon de parme",
                 "quantité": 4,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Pommes",
@@ -390,7 +390,7 @@ export const recettes = [
             {
                 "ingrédient": "Vinaigrette",
                 "quantité": 5,
-                "unité": "cl"
+                "unit": "cl"
             }
         ],
         "temps": 10,
@@ -414,7 +414,7 @@ export const recettes = [
             {
                 "ingrédient": "Sucre vanillé",
                 "quantité": 6,
-                "unité": "sachets"
+                "unit": "sachets"
             },
             {
                 "ingrédient": "Eau",
@@ -520,7 +520,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait",
                 "quantité": 600,
-                "unité": "ml"
+                "unit": "ml"
             },
             {
                 "ingrédient": "Beurre salé",
@@ -565,12 +565,12 @@ export const recettes = [
             {
                 "ingrédient": "Basilique",
                 "quantité": 1,
-                "unité": "tiges"
+                "unit": "tiges"
             },
             {
                 "ingrédient": "huile d'olives",
                 "quantité": 2,
-                "unit": "cuillère à soupe"
+                "unit": " cuillères à soupe"
             }
         ],
         "temps": 45,
@@ -595,7 +595,7 @@ export const recettes = [
             {
                 "ingrédient": "Jus de citron",
                 "quantité": 1,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             },
             {
                 "ingrédient": "Glaçons",
@@ -622,12 +622,12 @@ export const recettes = [
             {
                 "ingrédient": "Glace à la vanille",
                 "quantité": 500,
-                "unité": "ml"
+                "unit": "ml"
             },
             {
                 "ingrédient": "Lait",
                 "quantité": 50,
-                "unité": "cl"
+                "unit": "cl"
             }
         ],
         "temps": 10,
@@ -651,7 +651,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait",
                 "quantité": 1,
-                "unité": "litres"
+                "unit": "litres"
             },
             {
                 "ingrédient": "Sucre glacé",
@@ -696,7 +696,7 @@ export const recettes = [
             {
                 "ingrédient": "huile d'olive",
                 "quantité": 1,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             }
         ],
         "temps": 30,
@@ -731,12 +731,12 @@ export const recettes = [
             {
                 "ingrédient": "Vin rouge",
                 "quantité": 20,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Crème fraîche",
                 "quantité": 1,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             }
         ],
         "temps": 30,
@@ -806,12 +806,12 @@ export const recettes = [
             {
                 "ingrédient": "Crème Fraîche",
                 "quantité": 20,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Lait",
                 "quantité": 20,
-                "unité": "cl"
+                "unit": "cl"
             }
         ],
         "temps": 60,
@@ -850,7 +850,7 @@ export const recettes = [
             {
                 "ingrédient": "Mayonnaise",
                 "quantité": 2,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             }
         ],
         "temps": 40,
@@ -916,12 +916,12 @@ export const recettes = [
             {
                 "ingrédient": "Tout",
                 "quantité": 1,
-                "unité": "gousses"
+                "unit": "gousses"
             }
         ],
         "temps": 25,
         "description": "Verser de l'huile dans une cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
-        "Appareil": "Mélangeur",
+        "appareil": "Mélangeur",
         "ustensiles": ["cocotte minute", "couteau"]
     },
     {
@@ -985,12 +985,12 @@ export const recettes = [
             {
                 "ingrédient": "Crème fraîche",
                 "quantité": 10,
-                "unité": "cl"
+                "unit": "cl"
             }
         ],
         "temps": 80,
         "description": "Émincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appétit.",
-        "Appareil": "Mélangeur",
+        "appareil": "Mélangeur",
         "ustensiles": ["casserole", "couteau"]
     },
     {
@@ -1006,7 +1006,7 @@ export const recettes = [
             {
                 "ingrédient": "Tout",
                 "quantité": 1,
-                "unité": "gousses"
+                "unit": "gousses"
             },
             {
                 "ingrédient": "Citron",
@@ -1021,7 +1021,7 @@ export const recettes = [
         ],
         "temps": 30,
         "description": "Prendre les pois chiches, les mettre dans le mixer avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
-        "Appareil": "Mélangeur",
+        "appareil": "Mélangeur",
         "ustensiles": ["cuillère en bois", "presse citron"]
     },
     {
@@ -1041,12 +1041,12 @@ export const recettes = [
             {
                 "ingrédient": "Tout",
                 "quantité": 2,
-                "unité": "gousses"
+                "unit": "gousses"
             }
         ],
         "temps": 60,
         "description": "Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuire à petit feu pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
-        "Appareil": "Mélangeur",
+        "appareil": "Mélangeur",
         "ustensiles": ["casserole", "cuillère en bois"]
     },
     {
@@ -1081,7 +1081,7 @@ export const recettes = [
         "temps": 60,
         "description": "Découper en cubes les carottes et pommes de terre. Faire revenir dans du beurre. Ajouter les lardons, une fois les lardons dorés, ajouter un grand verre d'eau. Ajouter les petit poids et les haricots verts ( tous deux pré cuits ). Ajouter Sel, poivre, thyms et laurier",
         "appareil": "Poêle",
-        "ustensiles": ["Couteau", "économe"]
+        "ustensiles": ["couteau", "économe"]
     },
     {
         "id": 32,
@@ -1091,17 +1091,17 @@ export const recettes = [
             {
                 "ingrédient": "Pain de mie",
                 "quantité": 8,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Blanc de dinde",
                 "quantité": 4,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Emmental",
                 "quantité": 8,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Gruyère",
@@ -1111,7 +1111,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait",
                 "quantité": 5,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Noix de muscade",
@@ -1132,12 +1132,12 @@ export const recettes = [
             {
                 "ingrédient": "Pain de mie",
                 "quantité": 8,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Saumon Fumé",
                 "quantité": 4,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Feuilles de laitue",
@@ -1146,12 +1146,12 @@ export const recettes = [
             {
                 "ingrédient": "Fromage blanc",
                 "quantité": 4,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             },
             {
                 "ingrédient": "Jus de citron",
                 "quantité": 1,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             }
         ],
         "temps": 5,
@@ -1172,7 +1172,7 @@ export const recettes = [
             {
                 "ingrédient": "Crème fraîche",
                 "quantité": 20,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Huile d'olive"
@@ -1184,7 +1184,7 @@ export const recettes = [
         ],
         "temps": 25,
         "description": "Éplucher les patates douces et couper les en morceaux. Les faire cuire pendant 20 minutes dans une casserole d'eau bouillante. Passer au mélangeur en ajoutant la crème et l'huile d'olive à son goutte. Salez, poivrez . Pressez l'orange et ajoutez le jus à l'ensemble.",
-        "Appareil": "Mélangeur",
+        "appareil": "Mélangeur",
         "ustensiles": ["couteau", "économe", "cuillère en bois"]
     },
     {
@@ -1208,7 +1208,7 @@ export const recettes = [
             {
                 "ingrédient": "Crème fraîche",
                 "quantité": 2,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             },
             {
                 "ingrédient": "Cumin",
@@ -1223,7 +1223,7 @@ export const recettes = [
         ],
         "temps": 25,
         "description": "Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la crème. Ajouter le cumin et la noix de muscade.",
-        "Appareil": "Mélangeur",
+        "appareil": "Mélangeur",
         "ustensiles": ["cocotte minute", "couteau", "cuillère en bois"]
     },
     {
@@ -1242,7 +1242,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait",
                 "quantité": 25,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Lasagnes",
@@ -1257,7 +1257,7 @@ export const recettes = [
             {
                 "ingrédient": "Maïzena",
                 "quantité": 1,
-                "unit": "cuillères à soupe"
+                "unit": " cuillères à soupe"
             }
         ],
         "temps": 35,
@@ -1282,7 +1282,7 @@ export const recettes = [
             {
                 "ingrédient": "Huile d'olives",
                 "quantité": 25,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Oignon",
@@ -1291,7 +1291,7 @@ export const recettes = [
             {
                 "ingrédient": "Coulis de tomates",
                 "quantité": 20,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Gruyère",
@@ -1313,12 +1313,12 @@ export const recettes = [
             {
                 "ingrédient": "Douleur",
                 "quantité": 6,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Lait",
                 "quantité": 25,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Oeuf",
@@ -1382,12 +1382,12 @@ export const recettes = [
             {
                 "ingrédient": "Sucre en poudre",
                 "quantité": 4,
-                "unit": "cuillères à café"
+                "unit": " cuillères à café"
             },
             {
                 "ingrédient": "Bicarbonate",
                 "quantité": 1,
-                "unit": "cuillères à café"
+                "unit": " cuillères à café"
             }
         ],
         "temps": 10,
@@ -1412,7 +1412,7 @@ export const recettes = [
             {
                 "ingrédient": "Sucre vanillé",
                 "quantité": 1,
-                "unité": "sachets"
+                "unit": "sachets"
             }
         ],
         "temps": 20,
@@ -1490,7 +1490,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait",
                 "quantité": 1,
-                "unité": "litres"
+                "unit": "litres"
             },
             {
                 "ingrédient": "Chocolat",
@@ -1526,7 +1526,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait",
                 "quantité": 50,
-                "unité": "cl"
+                "unit": "cl"
             },
             {
                 "ingrédient": "Oeuf",
@@ -1566,7 +1566,7 @@ export const recettes = [
             {
                 "ingrédient": "Sucre vanillé",
                 "quantité": 1,
-                "unité": "sachets"
+                "unit": "sachets"
             },
             {
                 "ingrédient": "Oeuf",
@@ -1575,7 +1575,7 @@ export const recettes = [
             {
                 "ingrédient": "Lait",
                 "quantité": 1,
-                "unité": "litre"
+                "unit": "litre"
             },
             {
                 "ingrédient": "Pruneaux",
@@ -1611,7 +1611,7 @@ export const recettes = [
             {
                 "ingrédient": "Crème Fraîche",
                 "quantité": 20,
-                "unité": "cl"
+                "unit": "cl"
             }
         ],
         "temps": 5,
@@ -1636,7 +1636,7 @@ export const recettes = [
             {
                 "ingrédient": "Lardons",
                 "quantité": 1,
-                "unité": "barquettes"
+                "unit": "barquettes"
             },
             {
                 "ingrédient": "Champignons de paris",
@@ -1674,7 +1674,7 @@ export const recettes = [
             {
                 "ingrédient": "Ananas",
                 "quantité": 4,
-                "unité": "tranches"
+                "unit": "tranches"
             },
             {
                 "ingrédient": "Miel",

@@ -1,13 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6b2f05754f.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
     <title>Les petits plats</title>
 </head>
+
 <body>
-    <h1>lklklklkllll</h1>
-    <div> <h1>hhhhhhhhhh</h1></div>
+    <header>
+        <div class="logo_title">
+            <img src="images/logo.png" class="logo" alt="img_logo" />
+        </div>
+    </header>
+    <main id="main">
+        <div class="input_search">
+            <input class="form-control" id="searchInput" type="text" name="searchIinput" placeholder="Rechercher une recette">
+            <div class="iconSearch">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="labels" id="labels"></div>
+        <section class="dropDownMenu">
+            <div id="dropDown">
+                <button id="ingredients" class="ingredients drop">Ingredients
+                    <span class="fas fa-chevron-down"></span>
+                </button>
+            </div>
+            <div id="ingredientsOpen" class="ingredientsOpen open-btn">
+                <div id="ingredients-search" class="ingredients-search btn-search">
+                    <input id="ingredients-input" class="ingredients-input btn-input" type="text" name="search-ingredient" placeholder="Rechercher un ingrédient">
+                    <span class="fas fa-chevron-up "></span>
+                </div>
+                <div class="container-tag" id="container-tag">
+                    <ul class="ingredients-dropdown" id="ingredients-dropdown">
+                
+                    </ul>
+                </div>
+            </div>
+            <div id="dropDown">
+                <button id="appareils" class="appareils drop">Appareils
+                    <span class="fas fa-chevron-down"></span>
+                </button>
+            </div>
+            <div id="appareilsOpen" class="appareilsOpen open-btn">
+                <div id="appareils-search" class="appareils-search btn-search"> 
+                    <input id="appareils-input" class="appareils-input btn-input" type="text" name="search-appareil" placeholder="Appareils">
+                    <span class="fas fa-chevron-up"></span>
+                </div>
+                <div class="container-tag" id="container-tag">
+                    <ul class="appareils-dropdown" id="appareils-dropdown">
+                
+                    </ul>
+                </div>
+            </div>    
+                
+            
+            <div id="dropDown">
+                <button id="ustensils" class="ustensils drop">Ustensils
+                    <span class="fas fa-chevron-down"></span>
+                </button>
+            </div>
+            <div id="ustensilsOpen" class="ustensilsOpen open-btn">
+                <div id="ustensil-search" class="ustensil-search btn-search" >
+                    <input id="ustensils-input" class="ustensils-input btn-input" type="text" name="search-ustensil" placeholder="Ustensils">
+                    <span class="fas fa-chevron-up "></span>
+                </div>
+                <div class="container-tag" id="container-tag">
+                    <ul class="ustensils-dropdown" id="ustensils-dropdown">
+                
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="cardsRecipe" id="cardsRecipe">
+        </section>
+    </main>
+    <script type="module" src="script/index.js"></script>
 </body>
+
 </html>
