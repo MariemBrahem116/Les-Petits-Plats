@@ -1,6 +1,6 @@
 import { recettes } from '../script/recette.js';
 let recettesArray = Object.entries(recettes);
-let tagArray = {ingredient:[],appareil:[],ustensil:[]};
+let tagArray = { ingredient: [], appareil: [], ustensil: [] };
 const create = (elm, attributes) => {
     const element = document.createElement(elm);
     for (let key in attributes) {
@@ -54,16 +54,16 @@ const unique = (liste) => {
 }
 
 //afficher les 30 premiers ingrédients dans une liste
-const appendIngredientFilterListe = (liste ,type="ingredient") => {
-    let ingredientsDropdown = document.querySelector(".ingredients-dropdown");
+const appendIngredientFilterListe = (liste, type, className = ".ingredients-dropdown") => {
+    let ingredientsDropdown = document.querySelector(className);
     liste.forEach((lst, i) => {
 
         if (i < 29) {
             let ingredientDrop = create("li", { class: "dropDown-item" });
             ingredientDrop.innerHTML = lst;
             ingredientDrop.addEventListener("click", (e) => {
-                createLabel(lst,type);
-               
+                createLabel(lst, type);
+
                 switch (type) {
                     case "ingredient":
                         tagArray.ingredient.push(lst);
@@ -71,10 +71,10 @@ const appendIngredientFilterListe = (liste ,type="ingredient") => {
                         let filterRecetteList = [];
                         recettesArray.forEach(recette => {
 
-                            recette[1].ingrédients.forEach( ing => {
-                                console.log(ing.ingrédient,lst);
-                                if(ing.ingrédient.toString().toLowerCase() === lst.toLowerCase()){
-                                    filterRecetteList.push(recette); 
+                            recette[1].ingrédients.forEach(ing => {
+                                console.log(ing.ingrédient, lst);
+                                if (ing.ingrédient.toString().toLowerCase() === lst.toLowerCase()) {
+                                    filterRecetteList.push(recette);
                                 }
                             })
                         });
@@ -82,13 +82,30 @@ const appendIngredientFilterListe = (liste ,type="ingredient") => {
                         //getAllIngredient(filterRecetteList);
                         appendIngredientFilterListe(getAllIngredient(filterRecetteList));
                         break;
-                
+
                     default:
                         break;
                 }
-              //  filterByTag(lst);
+                //  filterByTag(lst);
             })
             ingredientsDropdown.appendChild(ingredientDrop);
+        }
+    })
+}
+
+
+//afficher la liste des appareils dans une liste
+const appendFilterListe = (liste, type, className) => {
+    let DropdownListe = document.querySelector(className);
+    liste.forEach((lst, i) => {
+        if (i < 29) {
+            let dropDownItem = create("li", { class: "dropDown-item" });
+            dropDownItem.innerHTML = lst;
+            dropDownItem.addEventListener("click", (e) => {
+                createLabel(lst, type);
+    
+            })
+            DropdownListe.appendChild(dropDownItem); 
         }
     })
 }
@@ -99,21 +116,10 @@ const getAllIngredient = (recettes) => {
     recettes.forEach(recette => {
         listeIngredient.push(...recette[1].ingrédients.map(ing => ing.ingrédient));
     })
-    appendIngredientFilterListe(unique(listeIngredient));
+    appendFilterListe(unique(listeIngredient),"ingredient",".ingredients-dropdown");
 }
 
 getAllIngredient(recettesArray);
-
-//afficher la liste des appareils dans une liste
-const appendApplianceFilterListe = (liste) => {
-    let appliancesDropdown = document.querySelector(".appareils-dropdown");
-    liste.forEach((lst) => {
-        let applianceDrop = create("li", { class: "dropDown-item" });
-        applianceDrop.innerHTML = lst;
-        appliancesDropdown.appendChild(applianceDrop);
-
-    })
-}
 
 //récupérer tous les appareils
 const getAllAppliances = (recettes) => {
@@ -123,20 +129,10 @@ const getAllAppliances = (recettes) => {
             listeAppliances.push(recette[1].appareil);
         }
     })
-    appendApplianceFilterListe(unique(listeAppliances));
+    appendFilterListe(unique(listeAppliances),"appareil",".appareils-dropdown");
 }
 
 getAllAppliances(recettesArray);
-
-//afficher la liste des ustensils dans une liste
-const appendUstensilFilterListe = (liste) => {
-    let ustensilsDropdown = document.querySelector(".ustensils-dropdown");
-    liste.forEach((lst) => {
-        let ustensilDrop = create("li", { class: "dropDown-item" });
-        ustensilDrop.innerHTML = lst;
-        ustensilsDropdown.appendChild(ustensilDrop);
-    })
-}
 
 //récupérer tous les ustensils
 const getAllUstensils = (recettes) => {
@@ -144,21 +140,25 @@ const getAllUstensils = (recettes) => {
     recettes.forEach(recette => {
         listeUstensil.push((recette[1].ustensiles));
     })
-    appendUstensilFilterListe(unique(listeUstensil.flat()));
+    appendFilterListe(unique(listeUstensil.flat()),"ustensil",".ustensils-dropdown");
 }
 
 getAllUstensils(recettesArray);
 
 // créer un bouton label
 const labelsElt = document.getElementById("labels");
-const createLabel = (data,type) => {
+const createLabel = (data, type) => {
     const elt = create("button", { class: "selected-label " });
     switch (type) {
         case "ingredient":
-            elt.classList.add("ingredientsOpen"); 
-            
+            elt.classList.add("ingredientsOpen");
             break;
-    
+        case "appareil":
+            elt.classList.add("appareilsOpen");
+            break;
+        case "ustensil":
+            elt.classList.add("ustensilsOpen");
+            break;
         default:
             break;
     }
