@@ -180,6 +180,10 @@ p {
     width:667px;
     Height:397px;
 }
+.ingredientsOpen.open-btn.show-opts , .ustensilsOpen.open-btn.show-opts,.appareilsOpen.open-btn.show-opts {
+    display: block;
+}
+
 .ingredientsOpen ,.ingredients-input , .selected-label.ing{
     background-color:  #3282F7;
 }

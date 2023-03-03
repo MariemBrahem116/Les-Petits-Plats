@@ -320,51 +320,28 @@ let unfilterTag = (tag) => {
     }
 }
 
-/*document.addEventListener("click", (e) => {
-    if (e.target.matches(".dropDown-item")) { 
-    	
-    }
-    //supprimer le label
-    else if (e.target.matches(".fa-times-circle")) { 
-        document.getElementById("labels").removeChild(e.target.parentElement);
-        unfilterTag(e.target.parentElement);
-    }
-    else if (e.target.matches(".fa-chevron-down")) { 
-        e.target.parentElement.click();
-    }
-} );*/
-let addItem = (array, parentElm) => {
-	array.forEach(item => {
-		let option = create("li", {class: "dropdown-item"});
-		option.textContent = item.charAt(0).toUpperCase() + item.slice(1);
-		parentElm.appendChild(option);
-	})
-}
 
-let openDropdown = (btn, className, parentElm, inputId) => {
+let openDropdown = (btn, className, parentElm) => {
 	closeAllDropdowns();
 	let dropdownContainer = document.getElementById(parentElm);
-	let inputField = document.getElementById(inputId);
-	//run keyword search function
-	inputField.parentElement.classList.add("show");
-	inputField.parentNode.parentElement.classList.add("show");
-	dropdownContainer.parentElement.classList.add("show-opts");
-	btn.style.display = "none";
-    document.getElementById(className).style.display = "block";
+	dropdownContainer.parentNode.classList.add("show-opts");
+    let filterOpen = document.getElementById(className);
+    filterOpen.parentNode.classList.add("show");
+    let btnElement = document.getElementById(btn);
+	btnElement.style.display = "none";
+   
 };
+document.getElementById("ingredients").addEventListener("click", function() {openDropdown("ingredients","ingredientsOpen" ,"container-tag")});
 
-document.getElementById("ingredients").addEventListener("click", function(e) {openDropdown(e.target,"ingredientsOpen" ,"ingredients-dropdown", "ingredients-input")});
+document.getElementById("appareils").addEventListener("click", function() {openDropdown("appareils","appareilsOpen", "container-tag")});
 
-document.getElementById("appareils").addEventListener("click", function(e) {openDropdown(e.target,"appareilsOpen", "appareils-dropdown", "appareils-input")});
-
-document.getElementById("ustensils").addEventListener("click", function(e) {openDropdown(e.target, "ustensilsOpen","ustensils-dropdown", "ustensils-input")});
-
+document.getElementById("ustensils").addEventListener("click", function() {openDropdown("ustensils", "ustensilsOpen","container-tag")});
+console.log(Array.from(document.getElementsByClassName("open-btn")));
 
 let closeAllDropdowns = () => {
 	Array.from(document.getElementsByClassName("drop")).forEach(btn => {btn.removeAttribute("style")});
-	Array.from(document.getElementsByClassName("btn-search")).forEach(item => {item.classList.remove("show")});
-	Array.from(document.getElementsByClassName("container-tag")).forEach(item => {item.classList.remove("show-opts")});
-	Array.from(document.getElementsByClassName("open-btn")).forEach(item => {item.classList.remove("show")});
+	
+	Array.from(document.getElementsByClassName("open-btn")).forEach(item => {item.classList.remove("show-opts")});
 	Array.from(document.getElementsByClassName("fas fa-chevron-down")).forEach(item => {item.removeAttribute("style")});
 }
 Array.from(document.getElementsByClassName("fas fa-chevron-up")).forEach(item => {
