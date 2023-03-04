@@ -19,13 +19,12 @@ img {
 
 .input_search {
     position: relative;
-    justify-content: center;
-    display: -ms-flexbox;
     display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
     width: 100%;
-    margin-left: -5px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 #searchInput {
@@ -40,14 +39,14 @@ input {
 
     width: 90%;
     padding: 15px;
-    margin: -3px;
+    margin: 13px;
 }
 
 .iconSearch {
     display: flex;
     border: none;
     font-size: 1.2rem;
-    background-color:#E7E7E7;
+    background-color:transparent;
     justify-content: center;
     align-items: center;
     margin-left: -24px;
@@ -61,12 +60,20 @@ input {
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .cardsContainer {
     min-width: 30%;
     max-width: 30%;
     cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #E7E7E7;
+    border-radius: 0.25rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -118,7 +125,6 @@ p {
     border-radius: 0 0 5px 5px;
     background-color: #E7E7E7;
     padding: 0 1rem 1rem 1rem;
-    max-height: 150px;
 }
 
 .ingredientBold {
@@ -132,22 +138,21 @@ p {
     font-family: 'Roboto', sans empattement ;
     text-overflow: ellipsis;
     width: 50%!important;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
     text-align: justify;
     padding-right: 1em;
     margin: 0 -1em -2rem 0.5rem;
+    max-height: 102px;
 }
 .dropDownMenu{
     display: flex;
     gap:10px;
+    position: relative;
     margin-top: 30px;
     margin-left: 35px;
 }
 .drop{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between!important;
     align-items: center;
     border-radius: 5px;
     border: none;
@@ -179,6 +184,8 @@ p {
     color: #FFFF;
     width:667px;
     Height:397px;
+    position: absolute;
+    z-index: 2;
 }
 .ingredientsOpen.open-btn.show-opts , .ustensilsOpen.open-btn.show-opts,.appareilsOpen.open-btn.show-opts {
     display: block;
@@ -220,7 +227,8 @@ input[type="text"] {
     display: flex;
     color: white;
     cursor: pointer;
-    width: 120px;
+    width: 30%;
+    height: 100%;
     padding: 0.25rem 1.5rem;
     clear: both;
     font-weight: 400;
@@ -228,17 +236,21 @@ input[type="text"] {
     white-space: nowrap;
 }
 .dropDown-item:hover ,.dropDown-item:focus {
-    color: #16181b;
-    background-color: #f8f9fa;
+    color:black;
+    background-color: #fcfbfb;
 }
-.ingredients-dropdown{
+
+.ingredients-dropdown,.appareils-dropdown,.ustensils-dropdown{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 7px;
     align-items: center;
     justify-content: space-between;
     align-content: space-between;
+    width:100%;
     height: 100%;
-    gap:15px;
+    line-height: 21.6px;
+    padding: 5px;
 }
 
 .selected-label {

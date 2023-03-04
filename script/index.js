@@ -142,7 +142,7 @@ const appendFilterListe = (liste, type, className) => {
     DropdownListe.innerHTML = "";
 
     liste.forEach((lst, i) => {
-        if (i < 29) {
+        if (i < 30) {
             let dropDownItem = create("li", { class: "dropDown-item" });
 
             dropDownItem.innerHTML = lst;
@@ -331,11 +331,11 @@ let openDropdown = (btn, className, parentElm) => {
 	btnElement.style.display = "none";
    
 };
-document.getElementById("ingredients").addEventListener("click", function() {openDropdown("ingredients","ingredientsOpen" ,"container-tag")});
+document.getElementById("ingredients").addEventListener("click", function() {openDropdown("ingredients","ingredientsOpen" ,"container-tagIng")});
 
-document.getElementById("appareils").addEventListener("click", function() {openDropdown("appareils","appareilsOpen", "container-tag")});
+document.getElementById("appareils").addEventListener("click", function() {openDropdown("appareils","appareilsOpen", "container-tagApp")});
 
-document.getElementById("ustensils").addEventListener("click", function() {openDropdown("ustensils", "ustensilsOpen","container-tag")});
+document.getElementById("ustensils").addEventListener("click", function() {openDropdown("ustensils", "ustensilsOpen","container-tagUst")});
 console.log(Array.from(document.getElementsByClassName("open-btn")));
 
 let closeAllDropdowns = () => {
