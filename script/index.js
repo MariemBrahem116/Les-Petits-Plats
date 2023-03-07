@@ -1,9 +1,8 @@
 import { recettes } from '../script/recette.js';
 let recettesArray = Object.entries(recettes);
 let tagArray = { ingredient: [], appareil: [], ustensil: [] };
-const ingBtnElt = document.getElementById("ing-btn");
-const appBtnElt = document.getElementById("app-btn");
-const ustBtnElt = document.getElementById("ust-btn");
+let overLay = document.getElementById("overLay");
+const searchInput = document.getElementById("searchInput");
 const create = (elm, attributes) => {
     const element = document.createElement(elm);
     for (let key in attributes) {
@@ -11,7 +10,6 @@ const create = (elm, attributes) => {
     }
     return element;
 }
-// const mainSection = document.getElementById("main");
 
 let createRecette = (recette) => {
     let image = create("div", { class: "imageCard", alt: "imageCard" });
@@ -63,79 +61,66 @@ const unique = (liste) => {
  * 
  * @param {*} recettes 
  */
-const filterRecetteByIngredient = (recette ,tagArray,filterRecetteList) => {
+const filterRecetteByTags = (recettes) => {
     let found = true; // permet de verifier si la recette contient tous les ingredient selectionnés et enregistrer dans tagArray
-    tagArray.ingredient.forEach(ingTag => { // on parcour laliste des tags deja ajouter
-        
-        let partial_found = false; // permet de verifier si une la recette a ilngredient ingTag
-        
-        recette[1].ingrédients.forEach(ing => { // on parcour les ingredient de la recttes
-            const regex = new RegExp('^' + ingTag.toLowerCase() + '$'); // creation du regex avec ingTag en miniscule (^ = commence par le mot, $ = ce termine par le mot)
-            if (regex.test(ing.ingrédient.toString().toLowerCase())) { 
-                partial_found = true; // partial_found passe a true pour dire qu'une correspondance a été trouver.
+    
+    tagArray.ingredient.forEach(ingTag => {
+        let newList = [];
+        recettes.forEach(recette => {
+            let partial_found = false; // permet de verifier si une la recette a ilngredient ingTag
+            recette[1].ingrédients.forEach(ing => {
+                // const regex = new RegExp('^' + ingTag.toLowerCase() + '$'); // creation du regex avec ingTag en miniscule (^ = commence par le mot, $ = ce termine par le mot)
+                if (ing.ingrédient.toString().toLowerCase() === ingTag.toLowerCase()) {
+                    partial_found = true; // partial_found passe a true pour dire qu'une correspondance a été trouver.
+                }
+            });
+            if (partial_found) {
+                newList.push(recette); // dans le cas ou aucune correspondance n'a été trouver.
             }
         });
-
-        if (!partial_found) {
-            found = false; // dans le cas ou aucune correspondance n'a été trouver.
-        }
-        if (found) { // si found = true alors la recettes contient tous les ingredients selectionnés.
-            filterRecetteList.push(recette); // ajout dans notre liste filtrer.
-        }
+        recettes = newList;
     });
-}
-/**
- * 
- * @param {*} recette 
- * @param {*} tagArray 
- * @param {*} filterRecetteList 
- */
-const filterRecetteByAppareil = (recette ,tagArray,filterRecetteList) => {
-    let found = true; // permet de verifier si la recette contient tous les ingredient selectionnés et enregistrer dans tagArray
-console.log(recette[1])
-    tagArray.appareil.forEach(ingTag => { // on parcour laliste des tags deja ajouter
-        let partial_found = false; // permet de verifier si une la recette a ilngredient ingTag
-            const regex = new RegExp('^' + ingTag.toLowerCase() + '$'); // creation du regex avec ingTag en miniscule (^ = commence par le mot, $ = ce termine par le mot)
-           if(recette[1].appareil){
-            if (regex.test(recette[1].appareil.toString().toLowerCase())) { 
-                partial_found = true; // partial_found passe a true pour dire qu'une correspondance a été trouver.
-            }
-           }
-
-        if (!partial_found) {
-            found = false; // dans le cas ou aucune correspondance n'a été trouver.
-        }
-        if (found) { // si found = true alors la recettes contient tous les ingredients selectionnés.
-            filterRecetteList.push(recette); // ajout dans notre liste filtrer.
-        }
-    });
-}
-/**
- * 
- * @param {*} liste 
- * @param {*} type 
- * @param {*} className 
- */
-const filterRecetteByUstensil = (recette ,tagArray,filterRecetteList) => {
-    let found = true; // permet de verifier si la recette contient tous les ingredient selectionnés et enregistrer dans tagArray
-    console.log(recette[1].ustensiles)
-    tagArray.ustensil.forEach(ingTag => { // on parcour laliste des tags deja ajouter
-        
-        let partial_found = false; // permet de verifier si une la recette a ilngredient ingTag
-        const regex = new RegExp('^' + ingTag.toLowerCase() + '$'); // creation du regex avec ingTag en miniscule (^ = commence par le mot, $ = ce termine par le mot)
-        if (regex.test(recette[1].ustensiles.toString().toLowerCase())) { 
-            partial_found = true; // partial_found passe a true pour dire qu'une correspondance a été trouver.
-        }
+    
+    tagArray.appareil.forEach(appTag => { // on parcour laliste des tags deja ajouter
+        let newList = [];
        
-
-        if (!partial_found) {
-            found = false; // dans le cas ou aucune correspondance n'a été trouver.
-        }
-        if (found) { // si found = true alors la recettes contient tous les ingredients selectionnés.
-            filterRecetteList.push(recette.flat()); // ajout dans notre liste filtrer.
-        }
+        recettes.forEach(recette => {
+            let partial_found = false; // permet de verifier si une la recette a ilngredient appTag
+            // const regex = new RegExp('^' + appTag.toLowerCase() + '$'); // creation du regex avec appTag en miniscule (^ = commence par le mot, $ = ce termine par le mot)
+            if(recette[1].appareil){
+                if (recette[1].appareil.toLowerCase() === appTag.toLowerCase()) { 
+                    partial_found = true; // partial_found passe a true pour dire qu'une correspondance a été trouver.
+                }
+            }
+            if (partial_found) {
+                newList.push(recette); // dans le cas ou aucune correspondance n'a été trouver.
+            }
+        });
+        recettes = newList;
     });
+    
+    tagArray.ustensil.forEach(ustTag => { // on parcour laliste des tags deja ajouter
+        let newList = [];
+       
+        recettes.forEach(recette => {
+            let partial_found = false; // permet de verifier si une la recette a ustensile ustTag
+        
+            recette[1].ustensiles.forEach(ust => { // on parcour les ustensiles de la recttes
+                // const regex = new RegExp('^' + ustTag.toLowerCase() + '$'); // creation du regex avec ustTag en miniscule (^ = commence par le mot, $ = ce termine par le mot)
+                if (ust.toString().toLowerCase() === ustTag.toLowerCase()) { 
+                    partial_found = true; // partial_found passe a true pour dire qu'une correspondance a été trouver.
+                }
+            });
+            if (partial_found) {
+                newList.push(recette); // dans le cas ou aucune correspondance n'a été trouver.
+            }
+        });
+        recettes = newList;
+    });
+    // console.log(recettes);
+    return recettes;
 }
+
 //afficher la liste des appareils dans une liste
 const appendFilterListe = (liste, type, className) => {
     let DropdownListe = document.querySelector(className);
@@ -148,17 +133,14 @@ const appendFilterListe = (liste, type, className) => {
             dropDownItem.innerHTML = lst;
 
             dropDownItem.addEventListener("click", (e) => {
+                closeAllDropdowns();
                 let filterRecetteList = []; // liste filtrer
-
                 switch (type) {
                     case "ingredient":
                         if(tagArray.ingredient.indexOf(lst)<0){
                             tagArray.ingredient.push(lst);
                         }
-                        recettesArray.forEach(recette => { // on parcour la liste d'origine
-                            filterRecetteByIngredient(recette,tagArray,filterRecetteList);
-                        });
-                        appendRecettes(filterRecetteList);
+                        
                         break;
 
                     case "appareil":
@@ -166,24 +148,16 @@ const appendFilterListe = (liste, type, className) => {
                             tagArray.appareil.push(lst);
                         }
                         
-                        recettesArray.forEach(recette => { // on parcour la liste d'origine
-                            filterRecetteByAppareil(recette,tagArray,filterRecetteList);
-                        });
-                        appendRecettes(filterRecetteList);
                         break;
                     case "ustensil":
                         if(tagArray.ustensil.indexOf(lst)<0){
                             tagArray.ustensil.push(lst);
                         }
-                        recettesArray.forEach(recette => { // on parcour la liste d'origine
-                            filterRecetteByUstensil(recette,tagArray,filterRecetteList);
-                        });
-                        appendRecettes(filterRecetteList);
-
                     default:
                         break;
                 }
-                filterByTag(lst);
+                filterRecetteList = filterRecetteByTags(recettesArray);
+                appendRecettes(filterRecetteList);
                 createLabel();
             })
             DropdownListe.appendChild(dropDownItem); 
@@ -245,6 +219,7 @@ const createLabel = () => {
         const span = create("span", { class: "fas fa-times-circle" })
         span.addEventListener('click', () => {
             tagArray.ingredient.splice(i, 1);
+            appendRecettes(filterRecetteByTags(recettesArray));
             createLabel();
         });
         elt.append(ingTag, span);
@@ -255,6 +230,7 @@ const createLabel = () => {
         const span = create("span", { class: "fas fa-times-circle" })
         span.addEventListener('click', (e) => {
             tagArray.appareil.splice(i, 1);
+            appendRecettes(filterRecetteByTags(recettesArray));
             createLabel();
         });
         elt.append(ingTag, span);
@@ -265,6 +241,7 @@ const createLabel = () => {
         const span = create("span", { class: "fas fa-times-circle" });
         span.addEventListener('click', () => {
             tagArray.ustensil.splice(i, 1);
+            appendRecettes(filterRecetteByTags(recettesArray));
             createLabel();
         });
         elt.append(ingTag, span);
@@ -303,6 +280,7 @@ let tagSearch = (input, options) => {
         }
     })
 }
+
 const ingredientsInput = document.getElementById("ingredients-input");
 const appareilInput = document.getElementById("appareils-input");
 const ustensilInput = document.getElementById("ustensils-input");
@@ -310,42 +288,99 @@ tagSearch(ingredientsInput, Array.from(document.querySelectorAll("#ingredients-d
 tagSearch(appareilInput, Array.from(document.querySelectorAll("#appareils-dropdown .dropDown-item")));
 tagSearch(ustensilInput, Array.from(document.querySelectorAll("#ustensils-dropdown .dropDown-item")));
 
-let unfilterTag = (tag) => {
-    let recipeCards = Array.from(document.getElementsByClassName("cardsContainer"));
-    let input = tag.toLowerCase();
-    for (let i = 0; i < recipeCards.length; i++) {
-        if (recipeCards[i].hasAttribute("style") && !recipeCards[i].innerHTML.toLowerCase().includes(input)) {
-            recipeCards[i].removeAttribute("style");
-        }
-    }
-}
-
-
-let openDropdown = (btn, className, parentElm) => {
+let openDropdown = (btn, parentElm) => {
 	closeAllDropdowns();
 	let dropdownContainer = document.getElementById(parentElm);
 	dropdownContainer.parentNode.classList.add("show-opts");
-    let filterOpen = document.getElementById(className);
-    filterOpen.parentNode.classList.add("show");
     let btnElement = document.getElementById(btn);
 	btnElement.style.display = "none";
-   
+   overLay.style.display ="block";
 };
-document.getElementById("ingredients").addEventListener("click", function() {openDropdown("ingredients","ingredientsOpen" ,"container-tagIng")});
+document.getElementById("ingredients").addEventListener("click", function() {openDropdown("ingredients","container-tagIng")});
 
-document.getElementById("appareils").addEventListener("click", function() {openDropdown("appareils","appareilsOpen", "container-tagApp")});
+document.getElementById("appareils").addEventListener("click", function() {openDropdown("appareils", "container-tagApp")});
 
-document.getElementById("ustensils").addEventListener("click", function() {openDropdown("ustensils", "ustensilsOpen","container-tagUst")});
-console.log(Array.from(document.getElementsByClassName("open-btn")));
+document.getElementById("ustensils").addEventListener("click", function() {openDropdown("ustensils","container-tagUst")});
 
 let closeAllDropdowns = () => {
+    overLay.style.display = "none";
 	Array.from(document.getElementsByClassName("drop")).forEach(btn => {btn.removeAttribute("style")});
-	
 	Array.from(document.getElementsByClassName("open-btn")).forEach(item => {item.classList.remove("show-opts")});
 	Array.from(document.getElementsByClassName("fas fa-chevron-down")).forEach(item => {item.removeAttribute("style")});
 }
+overLay.addEventListener("click",()=>{
+    closeAllDropdowns();
+})
 Array.from(document.getElementsByClassName("fas fa-chevron-up")).forEach(item => {
 	item.addEventListener("click", function() {
 		closeAllDropdowns();
 	});
 });
+
+let createFilteredArr = (arr) => {
+	let filteredArr = [];
+	for (let i = 0; i<arr.length; i++) {
+		let filtered = (({id, ingrédients, nom, description}) => ({id, ingrédients, nom, description}))(arr[i][1]);
+		filteredArr.push(filtered);
+	}
+	return filteredArr;
+}
+
+let filteredArr = createFilteredArr(recettesArray);
+console.log(filteredArr);
+function FilterKeyword(item) {
+    this.id = item.id;
+	let Ingredient = item.ingrédients.map(b => b.ingrédient.toLowerCase()).flat();
+	let keywordString = item.nom + " " + Ingredient + " " + item.description;
+	let uniqueValue = [...new Set(keywordString.split(/[\s,().]+/))];
+    this.keyWord = uniqueValue;
+}
+
+let extractKeyword = (arr) => {
+	let newArr = [];
+	for (let i=0; i<arr.length; i++) {
+		let keyword = new FilterKeyword(arr[i]);
+		newArr.push(keyword);
+	}
+	return newArr;
+}
+console.log("kkkkkk");
+let filteredKeywordArr = extractKeyword(filteredArr);
+console.log(filteredKeywordArr)
+let launchSearch = (e) => {
+	let cardsRecipe = document.getElementById("cardsRecipe");
+	if (searchInput.value.length > 2) {
+		cardsRecipe.innerHTML = "";
+		let input = e.target.value.toLowerCase();
+        var searchListe = [];
+        const regex = new RegExp(input);
+        const listeRecette = [...recettesArray];
+		for( var i = 0 ; i < listeRecette.length ; i++){
+            let recette = listeRecette[i];
+            
+            for(var k = 0 ; k < recette[1].ingrédients.length ; k++){
+                
+                if(regex.test(recette[1].ingrédients[k].ingrédient.toLowerCase())){
+                    console.log(recette[1].ingrédients[k].ingrédient,regex);
+                    searchListe.push(recette);
+
+                    listeRecette.splice(i,1);
+                }
+                
+            }  
+        }
+		if(searchListe.length === 0){
+             
+            cardsRecipe.innerHTML = "<p id='msgResult'>« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>";    
+        }
+        else{
+            appendRecettes(filterRecetteByTags(searchListe));
+            createLabel();
+        }
+	} 
+    else{
+        appendRecettes(filterRecetteByTags(recettesArray));
+            createLabel();
+    }
+}
+searchInput.addEventListener("keyup", function(e) {launchSearch(e)});

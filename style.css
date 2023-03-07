@@ -18,13 +18,13 @@ img {
 }
 
 .input_search {
-    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: stretch;
+    justify-content: flex-end;
+    align-items: center;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+    margin-top: -17px;
 }
 
 #searchInput {
@@ -33,6 +33,8 @@ img {
     background-color: #E7E7E7;
     border: none;
     border-radius: 5px;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 
 input {
@@ -44,13 +46,12 @@ input {
 
 .iconSearch {
     display: flex;
+    position: absolute;
     border: none;
-    font-size: 1.2rem;
-    background-color:transparent;
+    font-size: 1.5rem;
     justify-content: center;
     align-items: center;
-    margin-left: -24px;
-    color: #495057;
+    margin-right: 30px;
 }
 
 .cardsRecipe {
@@ -64,13 +65,11 @@ input {
 }
 
 .cardsContainer {
-    min-width: 30%;
     max-width: 30%;
     cursor: pointer;
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 0;
     word-wrap: break-word;
     background-color: #E7E7E7;
     border-radius: 0.25rem;
@@ -146,9 +145,12 @@ p {
 .dropDownMenu{
     display: flex;
     gap:10px;
-    position: relative;
     margin-top: 30px;
-    margin-left: 35px;
+    margin-left: 73px;
+}
+
+.labels{
+    margin-left: 73px;
 }
 .drop{
     display: flex;
@@ -162,33 +164,46 @@ p {
     font-size: 18px;
     padding: 15px;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 }
-#ingredients{
+#ingredients, #container-tagIng{
     background: #3282F7;
 }
-#appareils{
+#appareils, #container-tagApp{
     background: #68D9A4;
 }
-#ustensils{
+#ustensils, #container-tagUst{
     background: #ED6454;
 }
 .ingredients-search ,.appareils-search ,.ustensil-search{
     display: flex;
     justify-content: space-between!important;
     align-items: center;
+    margin-right: 14px
 }
 .open-btn{
     display: none;
     border-radius: 5px;
     padding:5px;
     color: #FFFF;
-    width:667px;
-    Height:397px;
+    width:667px;   
+}
+.container-tag{
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 65px;
+    border-radius: 0 0 5px 5px;
+    padding: 0 10px 10px 10px;
     position: absolute;
     z-index: 2;
 }
+ 
 .ingredientsOpen.open-btn.show-opts , .ustensilsOpen.open-btn.show-opts,.appareilsOpen.open-btn.show-opts {
     display: block;
+    position: relative;
 }
 
 .ingredientsOpen ,.ingredients-input , .selected-label.ing{
@@ -215,6 +230,7 @@ input[type="text"] {
     border-color: transparent;
     opacity: 0.5;
     color:#FFFFFF;
+    font-size: 18px;
 }
 .form-control input[type="text"] {
     color:#000000;
@@ -227,18 +243,46 @@ input[type="text"] {
     display: flex;
     color: white;
     cursor: pointer;
-    width: 30%;
+    width: 33%;
     height: 100%;
-    padding: 0.25rem 1.5rem;
     clear: both;
     font-weight: 400;
     text-align: inherit;
+    font-size: 18px;
     white-space: nowrap;
+    line-height: 28.6px;
+}
+@media only screen and (max-width: 960px) { 
+    .dropDown-item{
+        width:49%;
+    }
+    .cardsContainer {
+        max-width: 44%;
+    }
+ }
+ 
+ @media only screen and (max-width: 630px) { 
+    .dropDownMenu{
+        flex-direction: column;
+    }
+    .cardsContainer {
+        max-width:65%;
+    }
+    
 }
 .dropDown-item:hover ,.dropDown-item:focus {
     color:black;
     background-color: #fcfbfb;
 }
+.overLay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
 
 .ingredients-dropdown,.appareils-dropdown,.ustensils-dropdown{
     display: flex;
@@ -257,7 +301,7 @@ input[type="text"] {
     font-size: 1rem;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-top: 31px;
     color: #FFFFFF;
     border:none;
@@ -267,6 +311,13 @@ input[type="text"] {
 .fas.fa-times-circle{
     margin-left: 5px;
 }
+#msgResult{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 4rem;
+}
+
 
 
 
