@@ -298,32 +298,25 @@ Array.from(document.getElementsByClassName("fas fa-chevron-up")).forEach(item =>
     });
 });
 
-//méthode de recherche en utilisant les boucles natives
+//méthode de recherche en utilisant les objets array
 let launchSearch = (e) => {
     let cardsRecipe = document.getElementById("cardsRecipe");
     if (searchInput.value.length > 2) {
         cardsRecipe.innerHTML = "";
-        let input = e.target.value;
+        let input = normalize(e.target.value);
         var searchListe = [];
-        const regex = new RegExp(normalize(input));
         const listeRecette = [...recettesArray];
-        for (var i = 0; i < listeRecette.length; i++) {
-            let recette = listeRecette[i];
-            for (var k = 0; k < recette[1].ingrédients.length; k++) {
-                if (regex.test(normalize(recette[1].ingrédients[k].ingrédient))) {
-                    searchListe.push(recette);
-                    listeRecette.splice(i, 1);
-                }
-            }
-            if (regex.test(normalize(recette[1].nom))) {
-                searchListe.push(recette);
+        listeRecette.forEach((recette,i) =>{
+            const ingrédients = recette[1].ingrédients.map(ing => normalize(ing.ingrédient) );
+            const nom = normalize(recette[1].nom);
+            const description = normalize(recette[1].description);
+            if (nom.includes(input) || description.includes(input)  || ingrédients.includes(input)) {
+                searchListe.push(recette[1]);
                 listeRecette.splice(i, 1);
+                console.log(searchListe);
             }
-            if(regex.test(normalize(recette[1].description))){
-                searchListe.push(recette);
-                listeRecette.splice(i, 1);
-            }
-        }
+        })
+     
         if (searchListe.length === 0) {
             cardsRecipe.innerHTML = "<p id='msgResult'>« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>";
         }
