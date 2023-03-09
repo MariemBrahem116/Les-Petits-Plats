@@ -19,7 +19,7 @@ img {
 
 .input_search {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100%;
     padding-right: 15px;
@@ -32,7 +32,7 @@ img {
     color:#000000;
     background-color: #E7E7E7;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     font-size: 18px;
     letter-spacing: 1px;
 }
@@ -40,27 +40,29 @@ img {
 input {
 
     width: 90%;
-    padding: 15px;
-    margin: 13px;
+    padding: 15px 0 15px 15px;
+    margin: 13px 0 13px 0;
 }
 
 .iconSearch {
     display: flex;
-    position: absolute;
     border: none;
     font-size: 1.5rem;
     justify-content: center;
     align-items: center;
-    margin-right: 30px;
+    width: 43px;
+    height: 51px;
+    border-radius: 0 5px 5px 0;
+    background-color: #E7E7E7;
 }
 
 .cardsRecipe {
-    padding: 0 10px 0 10px;
+    padding: 0 20px 0 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-bottom: 30px;
 }
 
@@ -73,12 +75,6 @@ input {
     word-wrap: break-word;
     background-color: #E7E7E7;
     border-radius: 0.25rem;
-}
-
-@media screen and (max-width: 600px) {
-    .cardsContainer {
-        width: 90%;
-    }
 }
 
 .imageCard {
@@ -124,6 +120,7 @@ p {
     border-radius: 0 0 5px 5px;
     background-color: #E7E7E7;
     padding: 0 1rem 1rem 1rem;
+    margin-bottom: 25px;
 }
 
 .ingredientBold {
@@ -140,17 +137,21 @@ p {
     text-align: justify;
     padding-right: 1em;
     margin: 0 -1em -2rem 0.5rem;
-    max-height: 102px;
+    max-height: 88px;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
 }
 .dropDownMenu{
     display: flex;
     gap:10px;
-    margin-top: 30px;
-    margin-left: 73px;
+    margin-top: 20px;
+    margin-left: 4.2%;
+    margin-right: 28px;
 }
 
 .labels{
-    margin-left: 73px;
+    margin-left: 4%;
 }
 .drop{
     display: flex;
@@ -228,7 +229,6 @@ p {
 input[type="text"] {
     border: none;
     border-color: transparent;
-    opacity: 0.5;
     color:#FFFFFF;
     font-size: 18px;
 }
@@ -259,17 +259,37 @@ input[type="text"] {
     .cardsContainer {
         max-width: 44%;
     }
- }
- 
- @media only screen and (max-width: 630px) { 
+    
+.cardsRecipe{
+    padding:0;
+}
+}
+@media only screen and (max-width: 800px){
+    .dropDown-item {
+        width: 60%;
+    }
+}
+@media only screen and (max-width: 630px) { 
+    .cardsContainer {
+        width: 90%;
+    }
+    .open-btn {
+        width:554px;
+    }
+    
     .dropDownMenu{
         flex-direction: column;
+        margin-left: 25px;
+    }
+    #ingredients,#appareils,#ustensils{
+        width:100%;
     }
     .cardsContainer {
-        max-width:65%;
+        max-width:90%;
     }
     
 }
+
 .dropDown-item:hover ,.dropDown-item:focus {
     color:black;
     background-color: #fcfbfb;
