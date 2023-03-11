@@ -360,8 +360,8 @@ input[type="text"] {
 .listeSearch {
 	position: absolute;
 	z-index: 2;
-	top: 100%;
-	left: 20px;
+	top: 27%;
+	left: 34px;
 	background-color: white;
 	width: 100%;
 }

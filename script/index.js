@@ -298,46 +298,7 @@ Array.from(document.getElementsByClassName("fas fa-chevron-up")).forEach(item =>
         closeAllDropdowns();
     });
 });
-let closeLists = (element) => {
-    let x = document.getElementsByClassName("listeSearch");
-    for (let i=0; i<x.length; i++) {
-        if (element != x[i] && element != searchInput) {
-            x[i].parentNode.removeChild(x[i]);
-        }
-    }
-}
 
-searchInput.addEventListener("input",()=>{
-    if(searchInput.value.length > 2){
-    let val = normalize(searchInput.value);
-    var regex = new RegExp(val);
-    closeLists();
-    let a = create("div", {class: "listeSearch"});
-				//append to parent element
-				inputS.appendChild(a);
-				for (let i=0; i<recettes.length; i++) {
-					if (regex.test(recettes[i].nom) === val) {
-						let b = create("p");
-						b.textContent = recettes[i].nom;
-                        console.log(b);
-						//when click on the value
-						b.addEventListener("click", function() {
-							//insert value
-							inputS.value = this.textContent;
-							//close list
-							closeLists();
-						});
-						a.appendChild(b);
-					}
-				}
-    }
-    else {
-        closeLists();
-    }
-    document.addEventListener("click", function(e) {
-        closeLists(e.target);
-    })
-})
 //méthode de recherche en utilisant les objets array
 let launchSearch = (e) => {
     let cardsRecipe = document.getElementById("cardsRecipe");
@@ -352,7 +313,7 @@ let launchSearch = (e) => {
             const description = normalize(recette[1].description);
             const allFilters = [nom,ingrédients,description];
             if (nom.includes(input) || description.includes(input)  || ingrédients.includes(input)) {
-                searchListe.push(allFilters);
+                searchListe.push(recette);
                 listeRecette.splice(i, 1);
             
             }
