@@ -314,8 +314,6 @@ let launchSearch = (e) => {
             const allFilters = [nom,ingrédients,description];
             if (nom.includes(input) || description.includes(input)  || ingrédients.includes(input)) {
                 searchListe.push(recette);
-                listeRecette.splice(i, 1);
-            
             }
         })
      
