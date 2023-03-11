@@ -309,20 +309,28 @@ let launchSearch = (e) => {
         const listeRecette = [...recettesArray];
         for (var i = 0; i < listeRecette.length; i++) {
             let recette = listeRecette[i];
+            let found = false;
             for (var k = 0; k < recette[1].ingrédients.length; k++) {
                 if (regex.test(normalize(recette[1].ingrédients[k].ingrédient))) {
                     searchListe.push(recette);
                     listeRecette.splice(i, 1);
+                    found = true;
+                    break;
                 }
             }
-            if (regex.test(normalize(recette[1].nom))) {
-                searchListe.push(recette);
-                listeRecette.splice(i, 1);
+            if(!found){
+                if (regex.test(normalize(recette[1].nom))) {
+                    searchListe.push(recette);
+                    listeRecette.splice(i, 1);
+                    found = true;
+                }
             }
+           if(!found){
             if(regex.test(normalize(recette[1].description))){
                 searchListe.push(recette);
                 listeRecette.splice(i, 1);
             }
+           }
         }
         if (searchListe.length === 0) {
             cardsRecipe.innerHTML = "<p id='msgResult'>« Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>";
