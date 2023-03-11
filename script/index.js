@@ -3,6 +3,7 @@ let recettesArray = Object.entries(recettes);
 let tagArray = { ingredient: [], appareil: [], ustensil: [] };
 let overLay = document.getElementById("overLay");
 const searchInput = document.getElementById("searchInput");
+const inputS = document.getElementById("input_search");
 const labelsElt = document.getElementById("labels");
 
 //foncion pour créer des éléments
@@ -297,7 +298,46 @@ Array.from(document.getElementsByClassName("fas fa-chevron-up")).forEach(item =>
         closeAllDropdowns();
     });
 });
+let closeLists = (element) => {
+    let x = document.getElementsByClassName("listeSearch");
+    for (let i=0; i<x.length; i++) {
+        if (element != x[i] && element != searchInput) {
+            x[i].parentNode.removeChild(x[i]);
+        }
+    }
+}
 
+searchInput.addEventListener("input",()=>{
+    if(searchInput.value.length > 2){
+    let val = normalize(searchInput.value);
+    var regex = new RegExp(val);
+    closeLists();
+    let a = create("div", {class: "listeSearch"});
+				//append to parent element
+				inputS.appendChild(a);
+				for (let i=0; i<recettes.length; i++) {
+					if (regex.test(recettes[i].nom) === val) {
+						let b = create("p");
+						b.textContent = recettes[i].nom;
+                        console.log(b);
+						//when click on the value
+						b.addEventListener("click", function() {
+							//insert value
+							inputS.value = this.textContent;
+							//close list
+							closeLists();
+						});
+						a.appendChild(b);
+					}
+				}
+    }
+    else {
+        closeLists();
+    }
+    document.addEventListener("click", function(e) {
+        closeLists(e.target);
+    })
+})
 //méthode de recherche en utilisant les objets array
 let launchSearch = (e) => {
     let cardsRecipe = document.getElementById("cardsRecipe");
@@ -310,10 +350,11 @@ let launchSearch = (e) => {
             const ingrédients = recette[1].ingrédients.map(ing => normalize(ing.ingrédient) );
             const nom = normalize(recette[1].nom);
             const description = normalize(recette[1].description);
+            const allFilters = [nom,ingrédients,description];
             if (nom.includes(input) || description.includes(input)  || ingrédients.includes(input)) {
-                searchListe.push(recette[1]);
+                searchListe.push(allFilters);
                 listeRecette.splice(i, 1);
-                console.log(searchListe);
+            
             }
         })
      

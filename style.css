@@ -357,6 +357,19 @@ input[type="text"] {
     text-align: center;
     margin-right: 4rem;
 }
+.listeSearch {
+	position: absolute;
+	z-index: 2;
+	top: 100%;
+	left: 20px;
+	background-color: white;
+	width: 100%;
+}
+
+.listeSearch p:hover {
+	cursor: pointer;
+	background-color: #c9bdbd;
+}
 
 
 
